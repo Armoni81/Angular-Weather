@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <!-- Header Section -->
+    <div class="row justify-content-center text-center">
+      <h1 class="col-12 mb-4">Weather App</h1>
+    </div>
+
+    <!-- Input Section -->
+    <div class="row justify-content-center">
+      <div class="col-md-4 mb-3">
+        <input 
+          type="text" 
+          class="form-control" 
+          [(ngModel)]="inputCity" 
+          placeholder="Input city here">
+      </div>
+      <div class="col-md-2 mb-3">
+        <button 
+          class="btn btn-primary w-100" 
+          (click)="onClick()">
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- Error Message Section -->
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <h6 
+          *ngIf="renderErrorDuplicateCity" 
+          id="warning-text" 
+          class="text-danger">
+          {{inputCity}} has already been submitted
+        </h6>
+      </div>
+    </div>
+
+    <!-- Weather Information Section -->
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h2 class="text-center">{{ cityName }}</h2>
+        <ul class="list-group mt-4">
+          <li 
+            *ngFor="let city of listOfCities" 
+            class="list-group-item">
+            <strong>{{ city.city }}</strong><br>
+            <span>{{ city.tempHi }} Degrees Fahrenheit</span><br>
+            <span>{{ city.tempLow }} Degrees Fahrenheit</span><br>
+            <span>{{ city.wind }} MPH</span><br>
+            <span>{{ city.time }}</span><br>
+            <span>{{ city.humidity }}%</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
+
+
+
+<!-- `https://api.openweathermap.org/data/2.5/weather?q=${element}&appid=7983f9630bd1335bc5529b4c48cf145a` -->
