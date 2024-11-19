@@ -1,3 +1,21 @@
-#warning-text{
-    color: red;
-}
+
+body {
+    background-color: #f0f2f5;
+  }
+
+  .weather-card {
+    margin-bottom: 20px;
+  }
+
+  #warning-text {
+    color: #e80e24;
+    font-weight: bold;
+  }
+  #success-text {
+      color: rgb(67, 234, 67);
+      font-weight: bold;
+  }
+
+  .container {
+    max-width: 800px;
+  }

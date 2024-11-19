@@ -16,4 +16,18 @@ export class GetWeatherAPIService {
     return localStorage.getItem('cities')
 
   }
+  correctInputString(str: string) :string{
+      const toArray = str.split(str[0])[1]
+      console.log(str[0].toUpperCase() + toArray.toLowerCase(), 'geeked')
+      return str[0].toUpperCase() + toArray.toLowerCase()
+  }
+  checkStringLengthForSumbitButton(str:string): boolean {
+    if(str.length <= 0){
+      return true
+    }else{
+     return false
+    }
+  }
+
+
 }
